@@ -19,7 +19,7 @@ inquirer
     {
       type: `input`,
       message: `Enter installation instructions for your project`,
-      name: `installion`,
+      name: `installation`,
     },
     //project-usage-info
     {
@@ -41,8 +41,8 @@ inquirer
     },
     //project-licenses
     {
-      type: `checkbox`,
-      message: `Select the license/s for your project`,
+      type: `list`,
+      message: `Select the license for your project`,
       name: `licenses`,
       choices: [`Apache License 2.0`, `GNU GeneralPublic License v3.0`, `MIT License`, `BSD 2-Clause Simplified License`, `BSD 3-Clause New or Revised License`, `Boost Software License 1.0`, `None`],
     },
@@ -66,12 +66,14 @@ inquirer
     // console.log(`Here is the usuage information for your project: ${response.usage}`);
     // console.log(`Here are the contribution guidelines for your project: ${response.contribution}`);
     // console.log(`Here are the test instructions for your project: ${response.test}`);
-    // console.log(`Here are your license/s for your project: ${response.licenses}`);
+    // console.log(`Here is your license for your project: ${response.licenses}`);
     // console.log(`Here is your GitHub username: ${response.github}`);
     // console.log(`Here is your email: ${response.email}`);
 
     const readmeTemplate = `
 # ${response.projectname}
+
+### ${response.licenses}
 
 ## Description
 ${response.description}
@@ -79,7 +81,7 @@ ${response.description}
 ## Table of Contents
 - [Installation](#installation)
 - [Usage](#usage)
-- [Contribuitn Guidelines](#contribution-guidelines)
+- [Contribution Guidelines](#contribution-guidelines)
 - [Test Instructions](#test-instructions)
 - [Licenses](#licenses)
 - [Questions](#questions)
@@ -97,11 +99,13 @@ ${response.contribution}
 ${response.test}
 
 ## Licenses
-${response.licenses}
+This project uses the following license:
+- ${response.licenses}
 
 ## Questions
-${response.github}
-${response.email}
+If you have any further inquiries then you can contact me at:
+- My GitHub: [https://github.com/${response.github}](https://github.com/${response.github})
+- My Email: ${response.email}
     `;
 
     fs.writeFile('generated-readme.md', readmeTemplate, (err) =>
