@@ -19,6 +19,7 @@ N/A
 
 ## Usage
 Install Node.js, Initialise npm and follow the prompts in your terminal.
+Here is a link to a video demo: [Video Demo](https://drive.google.com/file/d/16DSundOD2Kc8NKL8ns8d1oU7dUqQK257/view)
 
 ## Contribution Guidelines
 N/A
